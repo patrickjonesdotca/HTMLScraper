@@ -15,6 +15,16 @@ public class HTMLScraper {
     }
   }
   
+  public String inspectElement(org.jsoup.nodes.Element el) {
+    StringBuilder sb = new StringBuilder();
+    sb.append("Node attributes: \n");
+    sb.append(el.attributes().toString().trim() + "\n");
+    sb.append("Parent attributes: \n");
+    sb.append(el.parent().attributes().toString().trim());
+    
+    return sb.toString();
+  }
+  
   public org.jsoup.select.Elements getSelection(String selection) {
     return document.select(selection);
   }
